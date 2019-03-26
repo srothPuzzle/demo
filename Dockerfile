@@ -1,8 +1,5 @@
 FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 
-RUN ./gradlew clean build; \
-	cp build/libs/*.jar /home/jboss;
-
 USER root
 
 RUN yum install -y wget
@@ -15,9 +12,9 @@ RUN wget https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zi
   && mv /usr/share/gradle-$GRADLE_VERSION /usr/share/gradle \
   && ln -s /usr/share/gradle/bin/gradle /usr/bin/gradle
 
-COPY ./.s2i/bin/ /usr/local/s2i
+RUN gradle build \
+    cp build/libs/*.jar /home/jboss; 
 
-RUN chmod +x /usr/local/s2i/*
+USER 1001
 
-USER 185
-CMD ["/usr/local/s2i/run"]
+CMD java -jar /home/jboss/app.jar
