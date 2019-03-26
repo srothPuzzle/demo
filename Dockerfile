@@ -4,13 +4,8 @@ WORKDIR /tmp/src
 
 COPY . /tmp/src
 
-RUN if [ ! -s /tmp/src/app.jar ]; then \
-	./gradlew clean build; \
-	cp build/libs/*.jar /home/jboss; \
-    else \
-	cp /tmp/src/*.jar /home/jboss;\
-    fi; \
-    rm -rf /tmp/src
+RUN ./gradlew clean build; \
+	cp build/libs/*.jar /home/jboss;
 
 USER 1001
 
