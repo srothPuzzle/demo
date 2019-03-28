@@ -1,5 +1,6 @@
 package com.example.demo.user.Entity;
 
+import com.example.demo.VersionedEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,18 +13,13 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
-public class User {
-
+@Table(name = "demo_user")
+public class User extends VersionedEntity {
 
     @Id
-    @GeneratedValue(generator = "userSeqGen")
+    @GeneratedValue
     private long id;
-
     private String firstName;
-
     private String lastName;
-
-//Setters, getters and constructors
 
 }

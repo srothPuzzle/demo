@@ -1,1 +1,1 @@
-INSERT INTO user (id, firstname, lastname) VALUES (nextval('SEQ_USER'), 'test1', 'test1')
+INSERT INTO demo_user (id, version, first_name, last_name) VALUES (1,1, 'test1', 'test1')
