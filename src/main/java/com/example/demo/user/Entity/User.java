@@ -17,7 +17,7 @@ public class User {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "userSeqGen")
     private long id;
 
     private String firstName;
