@@ -1,4 +1,4 @@
-package com.example.demo.user.Entity;
+package com.example.demo.user.entity;
 
 import com.example.demo.VersionedEntity;
 import lombok.AllArgsConstructor;
